@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+
 import './App.css';
+import vivi from "./api.json"
+import { useState } from 'react';
+
+
+
 
 function App() {
+  const [suma, setsuma] = useState(0)
+const change = ()=>{
+  setsuma(suma+1)
+}
+console.log(suma);
+
+console.log(vivi);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='content-img'><img id='image' src={vivi[suma].img} alt="" /></div>
+      <div className='text'><b>{vivi[suma].phrase}</b></div>
+      <button onClick={change}>CHANGE</button>
+
+
+
+      
     </div>
   );
 }
